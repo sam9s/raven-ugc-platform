@@ -1,0 +1,84 @@
+# ==============================================
+# RAVEN UGC PLATFORM - GITIGNORE
+# ==============================================
+
+# Environment variables (NEVER commit these!)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# n8n credentials (use .example templates instead)
+n8n/credentials.json
+n8n/*.credentials.json
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Vercel
+.vercel/
+
+# Supabase local
+.supabase/
+
+# Generated videos/images (if stored locally)
+generated/
+uploads/
+
+# Secrets and keys (extra protection)
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
