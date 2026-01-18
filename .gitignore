@@ -82,3 +82,6 @@ uploads/
 *.p12
 *.pfx
 secrets/
+
+# MCP configuration (contains API keys)
+.mcp.json
