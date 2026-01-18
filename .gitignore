@@ -85,3 +85,6 @@ secrets/
 
 # MCP configuration (contains API keys)
 .mcp.json
+
+# Deployed workflow (contains real API keys from .env)
+n8n/workflows/*-DEPLOYED.json

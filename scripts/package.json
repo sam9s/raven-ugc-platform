@@ -1,0 +1,11 @@
+{
+  "name": "raven-ugc-scripts",
+  "version": "1.0.0",
+  "description": "Deployment and utility scripts for Raven UGC Platform",
+  "scripts": {
+    "deploy-workflow": "node deploy-workflow.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1"
+  }
+}

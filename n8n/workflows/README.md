@@ -12,43 +12,70 @@
 
 ## 🔐 API Key Configuration
 
-**IMPORTANT:** Before importing this workflow into n8n, you must replace the placeholder API keys with your actual keys.
+**IMPORTANT:** This workflow file contains **placeholders** for API keys, not real keys.
 
-### Required Keys
+### Why Placeholders?
 
-The workflow contains these placeholders that need to be replaced:
+- ✅ **Security**: Never commit real API keys to Git
+- ✅ **Transparency**: Anyone can see the workflow structure
+- ✅ **Version Control**: Safe to track changes in Git
 
-1. **`YOUR_KIE_AI_API_KEY`** - Replace with your KIE.AI API key
-   - Found in: Authorization headers for image and video polling nodes
-   - Example: `75bd6a9ed7febaae49414f961d04e0a4`
+### The Problem with n8n
 
-2. **`YOUR_OPENAI_API_KEY`** - Replace with your OpenAI API key
-   - Found in: OpenAI credential configuration
-   - Format: `sk-proj-...`
+n8n has `N8N_BLOCK_ENV_ACCESS_IN_NODE=true`, which means:
+- ❌ Cannot use `$env.KIE_AI_API_KEY` in expressions
+- ❌ Cannot read from `.env` file in workflow
+- ✅ Must hardcode keys OR use deployment script
 
-### How to Configure
+### How to Deploy (2 Options)
 
-#### Option 1: Manual Find & Replace (Recommended)
-1. Open `ugc-video-generation-WORKING-v1.json` in a text editor
-2. Find `YOUR_KIE_AI_API_KEY` and replace with actual KIE.AI key
-3. Find `YOUR_OPENAI_API_KEY` and replace with actual OpenAI key
-4. Save the file
-5. Import into n8n
+#### Option 1: Use Deployment Script (Recommended) ⭐
 
-#### Option 2: Using sed (Linux/Mac/Git Bash)
+The script reads your `.env` file and creates a production-ready workflow:
+
 ```bash
-# Replace KIE.AI API key
-sed -i 's/YOUR_KIE_AI_API_KEY/your-actual-kie-ai-key/g' ugc-video-generation-WORKING-v1.json
+# Install dependencies
+cd scripts
+npm install
 
-# Replace OpenAI API key
-sed -i 's/YOUR_OPENAI_API_KEY/your-actual-openai-key/g' ugc-video-generation-WORKING-v1.json
+# Run deployment script
+npm run deploy-workflow
 ```
 
-#### Option 3: After Import in n8n
-1. Import the workflow as-is
-2. Open each node that says "Invalid credentials"
-3. Configure the credentials manually in n8n UI
-4. Save the workflow
+This creates `ugc-video-generation-DEPLOYED.json` with real API keys from your `.env` file.
+
+**Then import the DEPLOYED file into n8n:**
+1. Go to https://n8n.sam9scloud.in
+2. Import `n8n/workflows/ugc-video-generation-DEPLOYED.json`
+3. Activate workflow
+
+**Note:** The DEPLOYED file is gitignored (contains real keys).
+
+---
+
+#### Option 2: Manual Replacement
+
+If you don't want to use the script:
+
+1. **Copy the template:**
+   ```bash
+   cp ugc-video-generation-WORKING-v1.json ugc-video-generation-DEPLOYED.json
+   ```
+
+2. **Replace placeholders** in the DEPLOYED file:
+   - Find `YOUR_KIE_AI_API_KEY` → Replace with value from `.env` → `KIE_AI_API_KEY`
+   - Find `YOUR_OPENAI_API_KEY` → Replace with value from `.env` → `OPENAI_API_KEY`
+
+3. **Import DEPLOYED file** into n8n
+
+---
+
+### Placeholder → Environment Variable Mapping
+
+| Placeholder | Environment Variable | Found in .env |
+|-------------|---------------------|---------------|
+| `YOUR_KIE_AI_API_KEY` | `KIE_AI_API_KEY` | Line 29 |
+| `YOUR_OPENAI_API_KEY` | `OPENAI_API_KEY` | Line 26 |
 
 ---
 
