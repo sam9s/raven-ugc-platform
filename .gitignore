@@ -88,3 +88,12 @@ secrets/
 
 # Deployed workflow (contains real API keys from .env)
 n8n/workflows/*-DEPLOYED.json
+
+# Workflow JSON files (contain API keys - back up separately on Google Drive)
+n8n/workflows/*.json
+
+# Temporary workflow files
+scripts/workflow-payload.json
+
+# Archived workflows (backed up separately)
+n8n/workflows/Archived Workflows/

@@ -1,0 +1,17 @@
+{
+  "user_id": "42a140a2-b4c5-4e2e-92bd-449e87f52605",
+  "video_id": "5c14412c-0485-4959-8e3d-892ee0a3dc32",
+  "product_name": "Wireless Earbuds Pro",
+  "product_category": "Electronics",
+  "product_photo_url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800",
+  "features": "Active noise cancellation, 40-hour battery life, IPX7 waterproof",
+  "model": "veo3_fast",
+  "ugc_script": {
+    "hook": "Okay so I've been using these Wireless Earbuds Pro for like 2 weeks now and honestly...",
+    "dream_outcome": "My workout sessions have completely transformed. I can finally focus without any distractions",
+    "social_proof": "Over 10,000 five-star reviews and my gym buddies keep asking where I got them",
+    "ease": "You literally just pop them in, they auto-connect to your phone instantly",
+    "speed": "I noticed the noise cancellation working perfectly from day one",
+    "cta": "Link in bio to grab yours before they sell out again"
+  }
+}
